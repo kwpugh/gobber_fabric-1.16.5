@@ -18,9 +18,13 @@ import me.sargunvohra.mcmods.autoconfig1u.serializer.PartitioningSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotTypeInfo;
+import top.theillusivec4.curios.api.SlotTypePreset;
 
 public class Gobber2 implements ModInitializer
 {
@@ -29,7 +33,6 @@ public class Gobber2 implements ModInitializer
 	public static final Identifier MOD_DIMENSION2_ID = new Identifier(Gobber2.MOD_ID, "hunting");
 	public static final Identifier MOD_DIMENSION3_ID = new Identifier(Gobber2.MOD_ID, "caving");
 	public static final Identifier MOD_DIMENSION4_ID = new Identifier(Gobber2.MOD_ID, "nethering");
-	public static final Gobber2 INSTANCE = new Gobber2();
 	public static final ItemGroup GOBBER2_GROUP = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "gobber2_group"), () -> new ItemStack(ItemInit.GOBBER2_SWORD_NETHER));
 	public static final Gobber2Config CONFIG = AutoConfig.register(Gobber2Config.class, PartitioningSerializer.wrap(JanksonConfigSerializer::new)).getConfig();
 
@@ -50,10 +53,10 @@ public class Gobber2 implements ModInitializer
     	LootTableInit.registerLoot();
     	PortalInit.registerPortal();
 
-//    	if(FabricLoader.getInstance().isModLoaded("curios"))
-//    	{
-//        	CuriosApi.enqueueSlotType(SlotTypeInfo.BuildScheme.REGISTER, SlotTypePreset.RING.getInfoBuilder().size(4).build());
-//        	CuriosApi.enqueueSlotType(SlotTypeInfo.BuildScheme.REGISTER, SlotTypePreset.BELT.getInfoBuilder().size(2).build());
-//    	}
+    	if(FabricLoader.getInstance().isModLoaded("curios"))
+    	{
+        	CuriosApi.enqueueSlotType(SlotTypeInfo.BuildScheme.REGISTER, SlotTypePreset.RING.getInfoBuilder().size(4).build());
+        	CuriosApi.enqueueSlotType(SlotTypeInfo.BuildScheme.REGISTER, SlotTypePreset.BELT.getInfoBuilder().size(2).build());
+    	}
     }
 }

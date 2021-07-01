@@ -23,6 +23,22 @@ repositories {
 		url = "http://maven.kyrptonaught.dev"
 		allowInsecureProtocol = true
 	}
+
+	maven {
+		url = "https://maven.theillusivec4.top/"
+	}
+	maven {
+		name = "Ladysnake Libs"
+		url = 'https://dl.bintray.com/ladysnake/libs'
+	}
+
+	maven {
+		url 'https://ladysnake.jfrog.io/artifactory/mods'
+	}
+
+	maven {
+		url "https://jitpack.io"
+	}
 }
 
 dependencies {
@@ -44,9 +60,6 @@ dependencies {
 	// Roughly Enough Items
    	modCompile "me.shedaniel:RoughlyEnoughItems:5.4.2"
 
-   	//Curios API
-   	//modImplementation "top.theillusivec4.curios:curios-fabric:${curios_version}"
-
 	//Custom Portals
 	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta32-1.16'
 	include 'net.kyrptonaught:customportalapi:0.0.1-beta32-1.16'
@@ -54,6 +67,10 @@ dependencies {
     //Pughlib for common mixin
     include "com.kwpugh:pugh_lib_fabric:1.1.0"
     modImplementation "com.kwpugh:pugh_lib_fabric:1.1.0"
+
+	//Curios API
+	modImplementation "top.theillusivec4.curios:curios-fabric:${curios_version}"
+	include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${cardinal_version}"
 }
 
 processResources {
